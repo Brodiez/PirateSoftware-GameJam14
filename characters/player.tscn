@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8oluyypfcuij"]
+[gd_scene load_steps=5 format=3 uid="uid://c8oluyypfcuij"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_pd1ha"]
+[ext_resource type="Script" path="res://characters/CameraPivot.gd" id="2_4gpxh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_et2f6"]
 
@@ -21,5 +22,10 @@ shape = SubResource("CapsuleShape3D_et2f6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_t37yl")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.782315, 0.622883, 0, -0.622883, 0.782315, 0, 5.68981, 5)
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 1.677, 0)
+top_level = true
+script = ExtResource("2_4gpxh")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.325)
