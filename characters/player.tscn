@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8oluyypfcuij"]
+[gd_scene load_steps=6 format=3 uid="uid://c8oluyypfcuij"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_pd1ha"]
 [ext_resource type="Script" path="res://characters/CameraPivot.gd" id="2_4gpxh"]
@@ -9,18 +9,25 @@
 radius = 0.501
 height = 2.005
 
+[sub_resource type="PrismMesh" id="PrismMesh_k2cb2"]
+
 [node name="Player" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_pd1ha")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Capsule" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_et2f6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="PlayerMesh" type="MeshInstance3D" parent="Capsule"]
 mesh = SubResource("CapsuleMesh_t37yl")
+skeleton = NodePath("../..")
+
+[node name="MeshForwardArrow" type="MeshInstance3D" parent="Capsule/PlayerMesh"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -0.545581, 1, -4.37114e-08, 0, -4.37114e-08, -1, -2.38481e-08, 0, 0.751395, -0.265453)
+mesh = SubResource("PrismMesh_k2cb2")
+skeleton = NodePath("../../..")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 1.677, 0)
@@ -28,4 +35,4 @@ top_level = true
 script = ExtResource("2_4gpxh")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.325)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.005)
