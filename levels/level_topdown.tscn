@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1vunrtnnyemr"]
+
+[ext_resource type="PackedScene" uid="uid://c8oluyypfcuij" path="res://characters/player.tscn" id="1_dknhu"]
+[ext_resource type="Texture2D" uid="uid://k80vw27qs6px" path="res://Textures/grid_black_512x512.png" id="1_edvev"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_igi3x"]
+size = Vector2(10, 10)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0xsvx"]
+orm_texture = ExtResource("1_edvev")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_72im0"]
+map_width = 11
+map_depth = 11
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xj0rj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4ty74"]
+sky_material = SubResource("ProceduralSkyMaterial_xj0rj")
+
+[sub_resource type="Environment" id="Environment_e37l2"]
+sky = SubResource("Sky_4ty74")
+tonemap_mode = 2
+
+[node name="Level" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_igi3x")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_0xsvx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("HeightMapShape3D_72im0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.0656788, 0.397148, 0.915401, -0.495671, 0.809179, -0.3155, -13.0055, 9.8602, -31.0326)
+light_energy = 0.29
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e37l2")
+
+[node name="Player" parent="." instance=ExtResource("1_dknhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.64675, 5.62779, -1.69417)

@@ -17,3 +17,5 @@ mono_crash.*.json
 
 # idea/jetbrains
 .idea
+
+addons/godot-git-plugin
