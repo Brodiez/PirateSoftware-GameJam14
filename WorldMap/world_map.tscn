@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://plhucvujw3oo"]
+
+[ext_resource type="Script" path="res://WorldMap/world_map.gd" id="1_7y3cb"]
+[ext_resource type="PackedScene" uid="uid://b35nr8oxfyakm" path="res://WorldMap/world_node.tscn" id="2_g380r"]
+[ext_resource type="PackedScene" uid="uid://cw7ydga1jta80" path="res://WorldMap/LevelSelectorIcon.tscn" id="3_i005c"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7y3cb")
+
+[node name="WorldNode" parent="." instance=ExtResource("2_g380r")]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 128.0
+offset_bottom = 224.0
+
+[node name="WorldNode2" parent="." instance=ExtResource("2_g380r")]
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 96.0
+world_index = 2
+
+[node name="WorldNode3" parent="." instance=ExtResource("2_g380r")]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 96.0
+world_index = 3
+
+[node name="WorldNode4" parent="." instance=ExtResource("2_g380r")]
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 512.0
+offset_bottom = 224.0
+world_index = 4
+
+[node name="WorldNode5" parent="." instance=ExtResource("2_g380r")]
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 352.0
+world_index = 5
+
+[node name="WorldNode6" parent="." instance=ExtResource("2_g380r")]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = 352.0
+world_index = 6
+
+[node name="WorldNode7" parent="." instance=ExtResource("2_g380r")]
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 224.0
+world_index = 7
+
+[node name="LevelSelectIcon" parent="." instance=ExtResource("3_i005c")]
+layout_mode = 0
