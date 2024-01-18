@@ -22,8 +22,9 @@ func get_aim_direction() -> Quaternion:
 	var hit_result = wordlspace.intersect_ray(ray)
 	
 	if hit_result:
-		var _direction = self.global_transform.origin.direction_to(hit_result.position)
-		_direction.y = 0
+		var _hit_position = hit_result.position
+		_hit_position.y = self.global_position.y
+		var _direction = self.global_transform.origin.direction_to(_hit_position)
 		aim_direction = Quaternion(Vector3.FORWARD, _direction)
 		
 	# TODO: gamepad logic
