@@ -2,6 +2,7 @@
 extends Control
 
 @export var world_index: int = 1
+@export_file("*.tscn") var level_path: String
 
 func _ready():
 	updateLevelLabelText()

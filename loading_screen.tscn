@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://djbheoxtolp8c"]
+
+[ext_resource type="Script" path="res://LoadingScreen.gd" id="1_gc1nv"]
+
+[sub_resource type="Gradient" id="Gradient_x4mo5"]
+offsets = PackedFloat32Array(0.993976, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rlr1i"]
+gradient = SubResource("Gradient_x4mo5")
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_gc1nv")
+next_scene_path = "res://levels/level_topdown.tscn"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture1D_rlr1i")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading...
+"

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="PS-GJ14"
-run/main_scene="res://levels/level_topdown.tscn"
+run/main_scene="res://WorldMap/world_map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LoadingFunctions="*res://LoadingFunctions.gd"
 
 [display]
 
