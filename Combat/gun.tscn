@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2oik06khq2ba"]
+
+[ext_resource type="PackedScene" uid="uid://cx0xed1tqxoo3" path="res://RawContent/blender/gun.blend" id="1_dy6nt"]
+[ext_resource type="Script" path="res://Combat/gun.gd" id="2_t1yun"]
+[ext_resource type="PackedScene" uid="uid://dcc77cf6fdek5" path="res://Combat/bullet.tscn" id="3_unoxp"]
+
+[node name="Gun" type="Node3D"]
+script = ExtResource("2_t1yun")
+projectile_scene = ExtResource("3_unoxp")
+
+[node name="gun" parent="." instance=ExtResource("1_dy6nt")]
+
+[node name="hotspot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.12114)
