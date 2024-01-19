@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d1vunrtnnyemr"]
 
 [ext_resource type="PackedScene" uid="uid://c8oluyypfcuij" path="res://characters/player.tscn" id="1_dknhu"]
-[ext_resource type="Texture2D" uid="uid://k80vw27qs6px" path="res://Textures/grid_black_512x512.png" id="1_edvev"]
+[ext_resource type="Texture2D" uid="uid://ctisu3diaaqlm" path="res://Textures/grid_black_512x512.png" id="1_edvev"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_igi3x"]
 size = Vector2(10, 10)
