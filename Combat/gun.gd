@@ -15,12 +15,15 @@ func _ready():
 	pass # Replace with function body.
 
 
+func is_fire_pressed():
+	return Input.is_action_pressed("fire") or Input.is_action_pressed("fire_gamepad")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# fire on mouse click
 	if accumulated_time < fire_delay_seconds:
 		accumulated_time += delta
-	if Input.is_action_pressed("fire") and accumulated_time > fire_delay_seconds:
+	if is_fire_pressed() and accumulated_time > fire_delay_seconds:
 		accumulated_time = 0.0
 		fire()
 		
