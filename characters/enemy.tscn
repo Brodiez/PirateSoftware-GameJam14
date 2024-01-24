@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbffutchf1yhb"]
+
+[ext_resource type="Script" path="res://characters/enemy.gd" id="1_x13u6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbs8k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gjyop"]
+radius = 0.501
+height = 2.005
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fix3s"]
+albedo_color = Color(0.52549, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_cwrmd"]
+
+[node name="enemy" type="CharacterBody3D"]
+script = ExtResource("1_x13u6")
+
+[node name="Capsule" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_vbs8k")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="Capsule"]
+mesh = SubResource("CapsuleMesh_gjyop")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fix3s")
+
+[node name="MeshForwardArrow" type="MeshInstance3D" parent="Capsule/PlayerMesh"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -0.545581, 1, -4.37114e-08, 0, -4.37114e-08, -1, -2.38481e-08, 0, 0.751395, -0.265453)
+mesh = SubResource("PrismMesh_cwrmd")
+skeleton = NodePath("../../..")
+
+[node name="WeaponSocket" type="Marker3D" parent="Capsule"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.576107, 0.234438, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
