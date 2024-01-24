@@ -35,7 +35,7 @@ func fire():
 	projectile.global_transform = $hotspot.global_transform
 	
     # get hotspot's forward vector in global space
-	var forward = $hotspot.global_transform.basis.z
+	var forward = $hotspot.global_transform.basis.z.normalized()
 	var impulse_vector = projectile_speed * forward
 
 	# apply velocity
