@@ -34,6 +34,9 @@ func _ready():
 	wordlspace = get_world_3d().get_direct_space_state()
 
 func _physics_process(delta):
+	if get_tree().current_scene.scene_file_path == "res://WorldMap/WorldMap.tscn":
+		return
+		
 	# Set player look direction.
 	$Capsule.set_quaternion(get_aim_direction())
 	
