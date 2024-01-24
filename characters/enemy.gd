@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = get_node("../Player")
+@onready var health_component = $HealthComponent
 
 const SPEED = 3.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,8 +31,6 @@ func _physics_process(delta):
 	var new_velocity = (next_location - current_location).normalized() * SPEED
 	
 	new_velocity = new_velocity.move_toward(velocity, SPEED * delta)
-	
-	
 	nav_agent.velocity = new_velocity
 	update_heading(next_location)
 	move_and_slide()
@@ -39,3 +38,7 @@ func _physics_process(delta):
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity:Vector3):
 	velocity = safe_velocity
+
+
+func apply_damage(damage: float):
+	health_component.apply_damage(damage)

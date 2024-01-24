@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbffutchf1yhb"]
+[gd_scene load_steps=7 format=3 uid="uid://cbffutchf1yhb"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_x13u6"]
+[ext_resource type="PackedScene" uid="uid://bm47etqmyrgoj" path="res://Combat/health_component.tscn" id="2_byvus"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbs8k"]
 
@@ -35,5 +36,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5761
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_byvus")]
 
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
