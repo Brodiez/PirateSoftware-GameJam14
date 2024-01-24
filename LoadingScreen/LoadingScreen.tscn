@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://djbheoxtolp8c"]
 
-[ext_resource type="Script" path="res://LoadingScreen.gd" id="1_gc1nv"]
+[ext_resource type="Script" path="res://LoadingScreen/LoadingScreen.gd" id="1_s0d5c"]
 
 [sub_resource type="Gradient" id="Gradient_x4mo5"]
 offsets = PackedFloat32Array(0.993976, 1)
@@ -10,7 +10,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_x4mo5")
 
 [node name="LoadingScreen" type="CanvasLayer"]
-script = ExtResource("1_gc1nv")
+script = ExtResource("1_s0d5c")
 next_scene_path = "res://levels/level_topdown.tscn"
 
 [node name="Control" type="Control" parent="."]

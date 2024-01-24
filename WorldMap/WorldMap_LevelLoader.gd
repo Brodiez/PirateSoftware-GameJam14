@@ -1,5 +1,5 @@
 @tool
-extends Control
+extends Node3D
 
 @export var world_index: int = 1
 @export_file("*.tscn") var level_path: String
@@ -12,6 +12,6 @@ func _process(delta):
 		updateLevelLabelText()
 
 func updateLevelLabelText():
-	$Label.text = "Level " + str(world_index)
+	$Label3D.text = "Level " + str(world_index)
 	
 	

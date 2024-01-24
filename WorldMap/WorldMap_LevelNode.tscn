@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://g4b1y4562rt3"]
+
+[ext_resource type="Script" path="res://WorldMap/WorldMap_LevelLoader.gd" id="1_rb50m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hdlh5"]
+height = 0.01
+radius = 1.0
+
+[sub_resource type="Gradient" id="Gradient_m3sas"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j7ww6"]
+gradient = SubResource("Gradient_m3sas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq6si"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("GradientTexture1D_j7ww6")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0qk34"]
+material = SubResource("StandardMaterial3D_sq6si")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.01
+
+[node name="WorldMap_LevelSelectNode" type="Node3D"]
+script = ExtResource("1_rb50m")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 1.32503)
+text = "Level 1"
+font_size = 64
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_hdlh5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_0qk34")

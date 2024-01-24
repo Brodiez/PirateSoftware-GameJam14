@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="PS-GJ14"
-run/main_scene="res://WorldMap/world_map.tscn"
+run/main_scene="res://WorldMap/WorldMap.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-LoadingFunctions="*res://LoadingFunctions.gd"
+LoadingFunctions="*res://Scripts/LoadingFunctions.gd"
 
 [display]
 
